@@ -71,9 +71,27 @@ export default function PatientGate() {
     }
   }
 
+  async function signOut() {
+    if (!supabase) return
+    setBusy(true)
+    setError('')
+    try {
+      const { error: signOutError } = await supabase.auth.signOut()
+      if (signOutError) throw signOutError
+      setSession(null)
+      setPassword('')
+      setEmail('')
+      setMode('signin')
+    } catch (problem) {
+      setError(problem instanceof Error ? problem.message : 'Could not sign out. Please try again.')
+    } finally {
+      setBusy(false)
+    }
+  }
+
   if (!cloudConfigured || offline) return <App />
   if (checking) return <div className="auth-loading">Connecting securely…</div>
-  if (session) return <App />
+  if (session) return <App onSignOut={signOut} signingOut={busy} signOutError={error} />
 
   return (
     <main className="auth-page">

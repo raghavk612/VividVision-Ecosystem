@@ -347,7 +347,7 @@ function clockTime() {
 const apiBase = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '')
 const aiAvailable = import.meta.env.VITE_STATIC_HOST !== 'true' || Boolean(apiBase)
 
-function App() {
+function App({ onSignOut, signingOut = false, signOutError = '' }: { onSignOut?: () => Promise<void>; signingOut?: boolean; signOutError?: string } = {}) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const stageRef = useRef<HTMLDivElement>(null)
   const cursorRef = useRef<HTMLDivElement>(null)
@@ -1685,6 +1685,8 @@ function App() {
           <h1>Normalize Living for Those Without</h1>
         </div>
         <div className="header-actions">
+          {onSignOut && <button className="guide-help account-sign-out" onClick={onSignOut} disabled={signingOut}>{signingOut ? 'Signing out…' : 'Sign out'}</button>}
+          {signOutError && <p className="account-sign-out-error" role="alert">{signOutError}</p>}
           <button className="guide-help" onClick={() => setGuideOpen(value => !value)} aria-expanded={guideOpen} disabled={collecting || stage === 'fitting'}>How to calibrate</button>
           <div className={`status-pill ${cameraState}`}>
             <span />
