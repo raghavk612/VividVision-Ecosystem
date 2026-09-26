@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VividVision is a webcam-powered, hands-free communication board.">
+  <title>VividVision — A voice within reach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="nav.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="index.html"><img class="brand-logo" src="logo.jpg" alt="">VividVision</a>
+    <nav aria-label="Main navigation">
+      <a class="active" href="index.html">Home</a>
+      <a href="care.html">VisionCare</a>
+      <a href="privacy.html">Privacy</a>
+      <a class="open" href="../vividvision/">Open VividVision <span>→</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span>Built for access</span> Frontier Cascadia 2026</p>
+        <h1>Your voice should never be priced out of reach.</h1>
+        <p class="lede">VividVision turns an ordinary webcam into a hands-free communication board. Point with your head, hold on the words you want, and speak through the computer.</p>
+        <div class="actions">
+          <a class="button primary" href="../vividvision/">Try VividVision <span>→</span></a>
+          <a class="button secondary" href="#how">See how it works</a>
+        </div>
+        <div class="proof">
+          <div><strong>Hands-free</strong><span>Head pointing + dwell</span></div>
+          <div><strong>Webcam only</strong><span>No eye-tracking hardware</span></div>
+          <div><strong>Private by design</strong><span>Video stays on device</span></div>
+        </div>
+      </div>
+
+      <div class="product-window" aria-label="VividVision board preview">
+        <div class="window-top"><strong><img class="brand-logo small" src="logo.jpg" alt=""> VividVision</strong><span class="ready"><i></i> camera ready</span></div>
+        <div class="sentence"><span>I need</span><span>some water</span><b>Speak</b></div>
+        <div class="board">
+          <span>Yes<i></i></span><span>No<i></i></span><span>Help<i></i></span><span>Pain<i></i></span><span>Wait<i></i></span><span>Not that<i></i></span>
+          <span>I want<i></i></span><span>I feel<i></i></span><span class="focused">My body<i></i></span><span>People<i></i></span><span>Ask<i></i></span><span>More<i></i></span>
+        </div>
+        <div class="pointer"></div>
+        <p>Hold your head here to choose</p>
+      </div>
+    </section>
+
+    <section class="cost-band">
+      <span>Dedicated gaze systems can cost thousands.</span>
+      <strong>VividVision starts with hardware people already own.</strong>
+    </section>
+
+    <section class="section" id="how">
+      <header class="section-head">
+        <p class="label">How it works</p>
+        <h2>From a head movement to a spoken sentence.</h2>
+        <p>No mouse, keyboard, touchscreen, or wearable sensor required.</p>
+      </header>
+      <div class="steps">
+        <article>
+          <b class="number">01</b><div class="icon face"><i></i><i></i><span></span></div>
+          <h3>Look toward a word</h3>
+          <p>The webcam reads head direction with MediaPipe. A short calibration adapts the board to each person.</p>
+        </article>
+        <article>
+          <b class="number">02</b><div class="icon dwell"><i></i><span></span></div>
+          <h3>Hold to choose</h3>
+          <p>A forgiving dwell target fills over time. Rest zones and cooldowns prevent accidental selections.</p>
+        </article>
+        <article>
+          <b class="number">03</b><div class="icon sound"><i></i><i></i><i></i><i></i><i></i></div>
+          <h3>Speak it aloud</h3>
+          <p>Build a sentence, edit it hands-free, then play it through the computer’s offline voice.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="science">
+      <div class="metrics">
+        <div class="accuracy">
+          <span>Measured pointing error</span>
+          <strong>0.5–1.0<small>% across</small></strong>
+          <div><i></i></div>
+          <p>against a 7.2% horizontal target budget</p>
+        </div>
+        <div class="layout">
+          <span>Designed around real movement</span>
+          <div><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <p>Two rows preserve vertical tolerance without shrinking vocabulary.</p>
+        </div>
+      </div>
+      <div class="science-copy">
+        <p class="label">Why head pointing</p>
+        <h2>Accuracy through thoughtful constraints.</h2>
+        <p>Webcam eye tracking magnifies every pixel of iris jitter. Head pose avoids that lever-arm problem, producing a steadier signal from the same camera.</p>
+        <ul><li>Nearest-word targeting</li><li>Temporal filtering</li><li>Large two-row targets</li><li>Dwell and nod controls</li></ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <header class="section-head"><p class="label">More than a board</p><h2>Communication that adapts to the moment.</h2></header>
+      <div class="features">
+        <article class="wide">
+          <div><p class="label">Contextual replies</p><h3>Fewer selections for a faster answer.</h3><p>VividVision can turn a partner’s question into short reply options—while always leaving the final choice to the user.</p></div>
+          <div class="reply"><p>“Would you like something to drink?”</p><span>Yes, water</span><span>No thanks</span><span>Something else</span></div>
+        </article>
+        <article><p class="label">Caregiver beacon</p><h3>Urgent needs travel beyond the screen.</h3><p>A Bluetooth-connected Particle Argon drives a visible alert for help and pain selections.</p><div class="beacon"><i></i><i></i><span>ALERT SENT</span></div></article>
+        <article><p class="label">Conversation view</p><h3>Keep both sides in context.</h3><p>A compact transcript helps communication partners follow along in noisy rooms.</p><div class="chat"><span>Can I help?</span><span>Yes, please.</span></div></article>
+      </div>
+    </section>
+
+    <section class="cta"><div><p>Communication is a right.</p><h2>Make yourself heard.</h2></div><a class="button light" href="../vividvision/">Open VividVision <span>→</span></a></section>
+  </main>
+
+  <footer><a class="brand" href="index.html"><img class="brand-logo" src="logo.jpg" alt="">VividVision</a><p>Hands-free communication using hardware you already own.</p><nav><a href="index.html">Home</a><a href="care.html">VisionCare</a><a href="privacy.html">Privacy</a><a href="../vividvision/">Open board</a></nav></footer>
+</body>
+</html>

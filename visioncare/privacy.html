@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy — VividVision</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="nav.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="index.html"><img class="brand-logo" src="logo.jpg" alt="">VividVision</a>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="care.html">VisionCare</a>
+      <a class="active" href="privacy.html">Privacy</a>
+      <a class="open" href="../vividvision/">Open VividVision <span>→</span></a>
+    </nav>
+  </header>
+
+  <main class="privacy">
+    <section class="privacy-hero">
+      <p class="label">Privacy policy</p>
+      <h1>Your communication belongs to you.</h1>
+      <p>VividVision is designed to keep sensitive video and communication data on the device whenever possible.</p>
+      <small>Effective September 12, 2026</small>
+    </section>
+
+    <div class="privacy-layout">
+      <aside>
+        <strong>On this page</strong>
+        <a href="#summary">Plain-language summary</a>
+        <a href="#camera">Camera and microphone</a>
+        <a href="#ai">Optional AI suggestions</a>
+        <a href="#storage">Storage and sharing</a>
+        <a href="#controls">Your controls</a>
+        <a href="#children">Children</a>
+      </aside>
+      <article class="policy">
+        <section id="summary">
+          <h2>Plain-language summary</h2>
+          <div class="privacy-cards">
+            <div><span class="privacy-icon">◉</span><strong>Camera stays local</strong><p>Video frames are processed in your browser and are not uploaded by VividVision.</p></div>
+            <div><span class="privacy-icon">◇</span><strong>No account required</strong><p>The prototype does not ask for your name, email address, or login.</p></div>
+            <div><span class="privacy-icon">$̸</span><strong>Nothing is sold</strong><p>VividVision does not sell personal information or use it for advertising.</p></div>
+          </div>
+        </section>
+
+        <section id="camera">
+          <h2>Camera and microphone</h2>
+          <p><strong>Camera.</strong> VividVision requests camera permission to estimate head direction. Camera frames are processed in the browser using MediaPipe. VividVision does not record, save, or upload those frames.</p>
+          <p><strong>Microphone.</strong> Listening is optional and off until you enable it. It creates a partner-side transcript and relevant reply choices. Browser speech recognition may process audio through your browser or operating-system provider under that provider’s terms.</p>
+          <p><strong>Speaker.</strong> On the Mac prototype, selected sentences are sent only to a local endpoint and spoken with macOS’s offline voice. Text is not sent to an external speech service.</p>
+        </section>
+
+        <section id="ai">
+          <h2>Optional AI suggestions</h2>
+          <p>The board includes useful local replies that do not require AI. If the prototype owner configures the optional OpenAI integration, recent transcript text—not camera footage—is sent to OpenAI to generate reply choices. Requests are made with API storage disabled. OpenAI’s own service terms and privacy policy apply.</p>
+          <p>AI suggestions never speak automatically. The person using VividVision chooses every word and sentence.</p>
+        </section>
+
+        <section id="storage">
+          <h2>Storage and sharing</h2>
+          <p>VividVision does not maintain a user database beyond account and paired-caregiver information. The current conversation remains private to its paired room. A preferred browser voice may be stored locally so it can be reused.</p>
+          <p>When connected, alert-level data may be sent over Bluetooth to the paired Particle Argon. The alert protocol communicates the alert type, not the sentence or camera data.</p>
+        </section>
+
+        <section id="controls">
+          <h2>Your controls</h2>
+          <ul>
+            <li>Deny or revoke camera and microphone permission in browser settings.</li>
+            <li>Use the fixed word board without microphone listening.</li>
+            <li>Stop the camera from the calibration panel.</li>
+            <li>Clear local site data through browser settings.</li>
+            <li>Disconnect the Bluetooth beacon at any time.</li>
+          </ul>
+        </section>
+
+        <section id="children">
+          <h2>Children</h2>
+          <p>VividVision is an early prototype, not a deployed medical service. A parent, guardian, educator, or care professional should supervise use by children and review the privacy settings of the browser and any optional third-party service.</p>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer><a class="brand" href="index.html"><img class="brand-logo" src="logo.jpg" alt="">VividVision</a><p>Hands-free communication using hardware you already own.</p><nav><a href="index.html">Home</a><a href="care.html">VisionCare</a><a href="privacy.html">Privacy</a><a href="../vividvision/">Open board</a></nav></footer>
+</body>
+</html>

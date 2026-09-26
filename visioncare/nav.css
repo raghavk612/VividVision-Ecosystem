@@ -1,0 +1,30 @@
+.care-status {
+  position: fixed;
+  z-index: 25;
+  top: 88px;
+  right: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border: 1px solid rgba(16, 35, 30, .12);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .9);
+  box-shadow: 0 8px 25px rgba(16, 35, 30, .08);
+  backdrop-filter: blur(12px);
+}
+
+.care-status button {
+  border: 0;
+  color: #60736d;
+  background: none;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .nav nav a { padding: 8px 7px; }
+  .nav nav .open { font-size: 0; }
+  .nav nav .open span { font-size: 13px; }
+  .care-status { top: 75px; right: 10px; }
+}
