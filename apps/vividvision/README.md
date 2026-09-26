@@ -41,7 +41,7 @@ Run `npm run test:camera` for constraint fallback and stream lifecycle tests.
 
 ### GitHub Pages deployment
 
-See the [repository README](../../README.md). The root build script builds both apps for deployment, with VividVision at `/VividVision-Ecosystem/vividvision/`. Run `npm run build` from the repository root to create the complete Pages artifact. Publish the combined artifact to `gh-pages` to update both apps; see the root README for the optional automated workflow.
+See the [repository README](../../README.md). The root build script builds both apps for deployment, with VividVision at `/VividVision-Ecosystem/vividvision/`. Run `npm run build` from the repository root to create the complete Pages artifact. Pushing to `main` runs the root deployment workflow and updates both apps.
 
 ### Hosted OpenAI backend
 

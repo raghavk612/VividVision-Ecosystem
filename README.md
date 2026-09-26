@@ -17,9 +17,7 @@ For VisionCare, run `python3 -m http.server 8080 --directory apps` and open `htt
 
 ## Deployment
 
-GitHub Pages allows one deployment per repository. The current Pages source is the `gh-pages` branch. Run `npm run build` to generate the combined `dist/`, then publish its contents to that branch. Both apps must be published together. Only public web assets enter the Pages artifact. Source changes on `main` require rebuilding and publishing to update the live apps.
-
-For automatic deployment, move `scripts/pages-workflow.yml` to `.github/workflows/pages.yml` using a GitHub login with workflow permission, then set **Settings → Pages → Source** to **GitHub Actions**. That workflow tests, builds, and publishes both apps on pushes to `main`.
+GitHub Pages allows one deployment per repository. The workflow `.github/workflows/pages.yml` tests, builds, and publishes both apps on every push to `main`. GitHub Pages uses **GitHub Actions** as its source. Run `npm run build` to generate the combined `dist/` locally. Only public web assets enter the Pages artifact. The `gh-pages` branch retains a snapshot from the initial combined deployment; Actions publishes directly from `main` going forward.
 
 Both apps retain their existing public Supabase configuration. Password-based sign-in continues to use that project. If configuring email confirmations, password resets, or OAuth, allow the new app URLs in Supabase Authentication redirect settings.
 
