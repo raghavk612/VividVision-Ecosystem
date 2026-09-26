@@ -1,5 +1,5 @@
 {
-  "name": "frontier-hackathon-apps",
+  "name": "vividvision-ecosystem",
   "private": true,
   "scripts": {
     "dev": "npm --prefix apps/vividvision run dev",

@@ -3,7 +3,7 @@ import { cpSync, mkdirSync, rmSync, writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 const root = fileURLToPath(new URL('../', import.meta.url))
 process.chdir(root)
-const base = process.env.PAGES_BASE_PATH || '/FrontierHackathon/'
+const base = process.env.PAGES_BASE_PATH || '/VividVision-Ecosystem/'
 if (!base.startsWith('/') || !base.endsWith('/')) throw new Error('PAGES_BASE_PATH must begin and end with /')
 execFileSync('npm', ['run', 'build', '--', `--base=${base}vividvision/`], {
   cwd: 'apps/vividvision', stdio: 'inherit', env: { ...process.env, VITE_STATIC_HOST: 'true' },

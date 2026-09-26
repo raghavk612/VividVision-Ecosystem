@@ -41,12 +41,12 @@ Run `npm run test:camera` for constraint fallback and stream lifecycle tests.
 
 ### GitHub Pages deployment
 
-See the [repository README](../../README.md). The root build script builds both apps for deployment, with VividVision at `/FrontierHackathon/vividvision/`. Run `npm run build` from the repository root to create the complete Pages artifact. Publish the combined artifact to `gh-pages` to update both apps; see the root README for the optional automated workflow.
+See the [repository README](../../README.md). The root build script builds both apps for deployment, with VividVision at `/VividVision-Ecosystem/vividvision/`. Run `npm run build` from the repository root to create the complete Pages artifact. Publish the combined artifact to `gh-pages` to update both apps; see the root README for the optional automated workflow.
 
 ### Hosted OpenAI backend
 
 Deploy the `render.yaml` Blueprint from `main` on Render. It creates a free Docker web service and asks for `OPENAI_API_KEY` privately. The container copies only the server code, never `.env.local`. `ALLOWED_ORIGINS` permits the GitHub Pages origin. `/health` reports liveness and `/api/suggestions/status` reports configuration without exposing credentials. Requests have size, concurrency, and per-process rate limits; CORS is a browser restriction, not user authentication. This is a public demo endpoint, so usage consumes the server owner's OpenAI credits.
 
-After deployment, build Pages with `VITE_STATIC_HOST=true VITE_API_BASE_URL=https://YOUR-SERVICE.onrender.com npm run build -- --base=/FrontierHackathon/vividvision/` or set the repository variable `VITE_API_BASE_URL` for the automated deployment. The frontend enables OpenAI only when the backend URL is configured. Keep local replies available if the host is waking up or the API fails. Free hosting can take time to wake after inactivity.
+After deployment, build Pages with `VITE_STATIC_HOST=true VITE_API_BASE_URL=https://YOUR-SERVICE.onrender.com npm run build -- --base=/VividVision-Ecosystem/vividvision/` or set the repository variable `VITE_API_BASE_URL` for the automated deployment. The frontend enables OpenAI only when the backend URL is configured. Keep local replies available if the host is waking up or the API fails. Free hosting can take time to wake after inactivity.
 
 For a local standalone API, run `npm run start:api` (port 3001 by default). Set `PORT` to override it; set `ALLOWED_ORIGINS` to a comma-separated list of approved frontend origins.

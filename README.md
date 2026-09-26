@@ -1,13 +1,13 @@
-# FrontierHackathon: VividVision + VisionCare
+# VividVision-Ecosystem: VividVision + VisionCare
 
 This repository contains the complete source for two separate apps for the Congressional App Challenge submission. Each app has its own directory and entry point; cloning this repository includes both apps without submodule setup.
 
 | App | Source | Live URL |
 | --- | --- | --- |
-| VividVision communication board | [apps/vividvision](apps/vividvision) | https://raghavk612.github.io/FrontierHackathon/vividvision/ |
-| VisionCare caregiver portal | [apps/visioncare](apps/visioncare) | https://raghavk612.github.io/FrontierHackathon/visioncare/ |
+| VividVision communication board | [apps/vividvision](apps/vividvision) | https://raghavk612.github.io/VividVision-Ecosystem/vividvision/ |
+| VisionCare caregiver portal | [apps/visioncare](apps/visioncare) | https://raghavk612.github.io/VividVision-Ecosystem/visioncare/ |
 
-The existing `/FrontierHackathon/` URL forwards to VividVision. The caregiver dashboard is at `visioncare/care.html`.
+The `/VividVision-Ecosystem/` URL forwards to VividVision. GitHub Pages URLs using the previous repository name must be updated. The caregiver dashboard is at `visioncare/care.html`.
 
 ## Local development
 
