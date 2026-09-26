@@ -3,121 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="VividVision is a webcam-powered, hands-free communication board.">
-  <title>VividVision — A voice within reach</title>
+  <meta name="theme-color" content="#f2f5f0">
+  <title>VisionCare — Live caregiver dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="care.css">
   <link rel="stylesheet" href="site.css">
   <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="auth.css">
 </head>
 <body>
   <header class="nav">
-    <a class="brand" href="index.html"><img class="brand-logo" src="logo.jpg" alt="">VividVision</a>
+    <a class="brand" href="index.html"><img class="brand-logo" src="logo.jpg" alt="">VisionCare</a>
     <nav aria-label="Main navigation">
-      <a class="active" href="index.html">Home</a>
-      <a href="care.html">VisionCare</a>
+      <a class="active" href="index.html">Caregiver dashboard</a>
       <a href="privacy.html">Privacy</a>
       <a class="open" href="../vividvision/">Open VividVision <span>→</span></a>
     </nav>
+    <div class="care-status">
+      <div class="connection" id="connection"><i></i><span>Connecting…</span></div>
+      <button id="sign-out" hidden>Sign out</button>
+    </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow"><span>Built for access</span> Frontier Cascadia 2026</p>
-        <h1>Your voice should never be priced out of reach.</h1>
-        <p class="lede">VividVision turns an ordinary webcam into a hands-free communication board. Point with your head, hold on the words you want, and speak through the computer.</p>
-        <div class="actions">
-          <a class="button primary" href="../vividvision/">Try VividVision <span>→</span></a>
-          <a class="button secondary" href="#how">See how it works</a>
-        </div>
-        <div class="proof">
-          <div><strong>Hands-free</strong><span>Head pointing + dwell</span></div>
-          <div><strong>Webcam only</strong><span>No eye-tracking hardware</span></div>
-          <div><strong>Private by design</strong><span>Video stays on device</span></div>
-        </div>
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">Caregiver dashboard</p>
+        <h1>Stay close,<br>even from across the room.</h1>
+        <p>Every sentence spoken through VividVision appears here instantly, with urgent needs brought to the top.</p>
       </div>
-
-      <div class="product-window" aria-label="VividVision board preview">
-        <div class="window-top"><strong><img class="brand-logo small" src="logo.jpg" alt=""> VividVision</strong><span class="ready"><i></i> camera ready</span></div>
-        <div class="sentence"><span>I need</span><span>some water</span><b>Speak</b></div>
-        <div class="board">
-          <span>Yes<i></i></span><span>No<i></i></span><span>Help<i></i></span><span>Pain<i></i></span><span>Wait<i></i></span><span>Not that<i></i></span>
-          <span>I want<i></i></span><span>I feel<i></i></span><span class="focused">My body<i></i></span><span>People<i></i></span><span>Ask<i></i></span><span>More<i></i></span>
-        </div>
-        <div class="pointer"></div>
-        <p>Hold your head here to choose</p>
+      <div class="pulse-card" id="status-card">
+        <div class="pulse-rings"><i></i><i></i><span></span></div>
+        <p>Patient status</p>
+        <strong id="patient-status">Waiting for VividVision</strong>
+        <small id="last-seen">No messages yet</small>
       </div>
     </section>
 
-    <section class="cost-band">
-      <span>Dedicated gaze systems can cost thousands.</span>
-      <strong>VividVision starts with hardware people already own.</strong>
-    </section>
-
-    <section class="section" id="how">
-      <header class="section-head">
-        <p class="label">How it works</p>
-        <h2>From a head movement to a spoken sentence.</h2>
-        <p>No mouse, keyboard, touchscreen, or wearable sensor required.</p>
-      </header>
-      <div class="steps">
-        <article>
-          <b class="number">01</b><div class="icon face"><i></i><i></i><span></span></div>
-          <h3>Look toward a word</h3>
-          <p>The webcam reads head direction with MediaPipe. A short calibration adapts the board to each person.</p>
-        </article>
-        <article>
-          <b class="number">02</b><div class="icon dwell"><i></i><span></span></div>
-          <h3>Hold to choose</h3>
-          <p>A forgiving dwell target fills over time. Rest zones and cooldowns prevent accidental selections.</p>
-        </article>
-        <article>
-          <b class="number">03</b><div class="icon sound"><i></i><i></i><i></i><i></i><i></i></div>
-          <h3>Speak it aloud</h3>
-          <p>Build a sentence, edit it hands-free, then play it through the computer’s offline voice.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="science">
-      <div class="metrics">
-        <div class="accuracy">
-          <span>Measured pointing error</span>
-          <strong>0.5–1.0<small>% across</small></strong>
-          <div><i></i></div>
-          <p>against a 7.2% horizontal target budget</p>
+    <section class="dashboard-grid">
+      <article class="latest-card empty" id="latest-card">
+        <header><div><p class="section-label">Latest communication</p><span class="level" id="latest-level">LIVE</span></div><time id="latest-time">—</time></header>
+        <div class="latest-content">
+          <span class="quote">“</span>
+          <h2 id="latest-text">Waiting for the patient to speak…</h2>
         </div>
-        <div class="layout">
-          <span>Designed around real movement</span>
-          <div><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-          <p>Two rows preserve vertical tolerance without shrinking vocabulary.</p>
-        </div>
-      </div>
-      <div class="science-copy">
-        <p class="label">Why head pointing</p>
-        <h2>Accuracy through thoughtful constraints.</h2>
-        <p>Webcam eye tracking magnifies every pixel of iris jitter. Head pose avoids that lever-arm problem, producing a steadier signal from the same camera.</p>
-        <ul><li>Nearest-word targeting</li><li>Temporal filtering</li><li>Large two-row targets</li><li>Dwell and nod controls</li></ul>
-      </div>
+        <footer><span>Sent from VividVision</span><button id="acknowledge" disabled>Mark as seen <b>✓</b></button></footer>
+      </article>
+
+      <aside class="summary-card">
+        <p class="section-label">Today at a glance</p>
+        <div class="summary-stat"><span>Messages</span><strong id="message-count">0</strong></div>
+        <div class="summary-stat urgent-stat"><span>Urgent alerts</span><strong id="urgent-count">0</strong></div>
+        <div class="device-row"><i></i><div><strong>VividVision board</strong><span id="device-copy">Checking connection</span></div></div>
+        <div class="device-row"><i class="beacon-dot"></i><div><strong>Caregiver beacon</strong><span>Bluetooth alert companion</span></div></div>
+      </aside>
     </section>
 
-    <section class="section">
-      <header class="section-head"><p class="label">More than a board</p><h2>Communication that adapts to the moment.</h2></header>
-      <div class="features">
-        <article class="wide">
-          <div><p class="label">Contextual replies</p><h3>Fewer selections for a faster answer.</h3><p>VividVision can turn a partner’s question into short reply options—while always leaving the final choice to the user.</p></div>
-          <div class="reply"><p>“Would you like something to drink?”</p><span>Yes, water</span><span>No thanks</span><span>Something else</span></div>
-        </article>
-        <article><p class="label">Caregiver beacon</p><h3>Urgent needs travel beyond the screen.</h3><p>A Bluetooth-connected Particle Argon drives a visible alert for help and pain selections.</p><div class="beacon"><i></i><i></i><span>ALERT SENT</span></div></article>
-        <article><p class="label">Conversation view</p><h3>Keep both sides in context.</h3><p>A compact transcript helps communication partners follow along in noisy rooms.</p><div class="chat"><span>Can I help?</span><span>Yes, please.</span></div></article>
+    <section class="history-section">
+      <header><div><p class="section-label">Communication history</p><h2>Recent messages</h2></div><button id="clear-history">Clear this view</button></header>
+      <div class="history" id="history">
+        <div class="history-empty"><span>···</span><strong>No messages yet</strong><p>Spoken sentences will appear here automatically.</p></div>
       </div>
     </section>
-
-    <section class="cta"><div><p>Communication is a right.</p><h2>Make yourself heard.</h2></div><a class="button light" href="../vividvision/">Open VividVision <span>→</span></a></section>
   </main>
 
-  <footer><a class="brand" href="index.html"><img class="brand-logo" src="logo.jpg" alt="">VividVision</a><p>Hands-free communication using hardware you already own.</p><nav><a href="index.html">Home</a><a href="care.html">VisionCare</a><a href="privacy.html">Privacy</a><a href="../vividvision/">Open board</a></nav></footer>
+  <div class="urgent-banner" id="urgent-banner" role="alert">
+    <span><i></i>Urgent message received</span>
+    <strong id="urgent-text"></strong>
+    <button id="dismiss-alert">Dismiss</button>
+  </div>
+
+  <div class="login-overlay" id="login-overlay">
+    <section class="login-card">
+      <img src="logo.jpg" alt="VividVision eye logo">
+      <p class="section-label">CAREGIVER DASHBOARD</p>
+      <h1 id="login-title">Caregiver sign in</h1>
+      <p id="login-copy">Sign in to receive communication from your patient securely.</p>
+      <form id="login-form">
+        <label id="name-field" hidden>Name<input id="care-name" autocomplete="name"></label>
+        <label id="room-field" hidden>Patient’s 8-character code<input id="room-code" minlength="8" maxlength="8" autocomplete="off"></label>
+        <label>Email<input id="email" type="email" required autocomplete="email"></label>
+        <label>Password<input id="password" type="password" required minlength="6" autocomplete="current-password"></label>
+        <p class="login-error" id="login-error" hidden></p>
+        <button type="submit" id="login-submit">Sign in</button>
+      </form>
+      <button class="login-switch" id="login-switch">New caregiver? Create an account</button>
+    </section>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
 </body>
 </html>

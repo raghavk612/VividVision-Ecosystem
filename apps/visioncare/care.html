@@ -2,100 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f2f5f0">
-  <title>VisionCare — Live caregiver dashboard</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="care.css">
-  <link rel="stylesheet" href="site.css">
-  <link rel="stylesheet" href="nav.css">
-  <link rel="stylesheet" href="auth.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="0; url=./">
+  <title>VisionCare — Caregiver sign in</title>
+  <script>location.replace('./' + location.search + location.hash)</script>
 </head>
-<body>
-  <header class="nav">
-    <a class="brand" href="index.html"><img class="brand-logo" src="logo.jpg" alt="">VisionCare</a>
-    <nav aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a class="active" href="care.html">VisionCare</a>
-      <a href="privacy.html">Privacy</a>
-      <a class="open" href="../vividvision/">Open VividVision <span>→</span></a>
-    </nav>
-    <div class="care-status">
-      <div class="connection" id="connection"><i></i><span>Connecting…</span></div>
-      <button id="sign-out" hidden>Sign out</button>
-    </div>
-  </header>
-
-  <main>
-    <section class="welcome">
-      <div>
-        <p class="eyebrow">Caregiver dashboard</p>
-        <h1>Stay close,<br>even from across the room.</h1>
-        <p>Every sentence spoken through VividVision appears here instantly, with urgent needs brought to the top.</p>
-      </div>
-      <div class="pulse-card" id="status-card">
-        <div class="pulse-rings"><i></i><i></i><span></span></div>
-        <p>Patient status</p>
-        <strong id="patient-status">Waiting for VividVision</strong>
-        <small id="last-seen">No messages yet</small>
-      </div>
-    </section>
-
-    <section class="dashboard-grid">
-      <article class="latest-card empty" id="latest-card">
-        <header><div><p class="section-label">Latest communication</p><span class="level" id="latest-level">LIVE</span></div><time id="latest-time">—</time></header>
-        <div class="latest-content">
-          <span class="quote">“</span>
-          <h2 id="latest-text">Waiting for the patient to speak…</h2>
-        </div>
-        <footer><span>Sent from VividVision</span><button id="acknowledge" disabled>Mark as seen <b>✓</b></button></footer>
-      </article>
-
-      <aside class="summary-card">
-        <p class="section-label">Today at a glance</p>
-        <div class="summary-stat"><span>Messages</span><strong id="message-count">0</strong></div>
-        <div class="summary-stat urgent-stat"><span>Urgent alerts</span><strong id="urgent-count">0</strong></div>
-        <div class="device-row"><i></i><div><strong>VividVision board</strong><span id="device-copy">Checking connection</span></div></div>
-        <div class="device-row"><i class="beacon-dot"></i><div><strong>Caregiver beacon</strong><span>Bluetooth alert companion</span></div></div>
-      </aside>
-    </section>
-
-    <section class="history-section">
-      <header><div><p class="section-label">Communication history</p><h2>Recent messages</h2></div><button id="clear-history">Clear this view</button></header>
-      <div class="history" id="history">
-        <div class="history-empty"><span>···</span><strong>No messages yet</strong><p>Spoken sentences will appear here automatically.</p></div>
-      </div>
-    </section>
-  </main>
-
-  <div class="urgent-banner" id="urgent-banner" role="alert">
-    <span><i></i>Urgent message received</span>
-    <strong id="urgent-text"></strong>
-    <button id="dismiss-alert">Dismiss</button>
-  </div>
-
-  <div class="login-overlay" id="login-overlay" hidden>
-    <section class="login-card">
-      <img src="logo.jpg" alt="VividVision eye logo">
-      <p class="section-label">CAREGIVER DASHBOARD</p>
-      <h1 id="login-title">Caregiver sign in</h1>
-      <p id="login-copy">Sign in to receive communication from your patient securely.</p>
-      <form id="login-form">
-        <label id="name-field" hidden>Name<input id="care-name" autocomplete="name"></label>
-        <label id="room-field" hidden>Patient’s 8-character code<input id="room-code" minlength="8" maxlength="8" autocomplete="off"></label>
-        <label>Email<input id="email" type="email" required autocomplete="email"></label>
-        <label>Password<input id="password" type="password" required minlength="6" autocomplete="current-password"></label>
-        <p class="login-error" id="login-error" hidden></p>
-        <button type="submit" id="login-submit">Sign in</button>
-      </form>
-      <button class="login-switch" id="login-switch">New caregiver? Create an account</button>
-    </section>
-  </div>
-
-  <script src="config.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="app.js"></script>
-</body>
+<body><p><a href="./">Continue to caregiver sign in</a></p></body>
 </html>

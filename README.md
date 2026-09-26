@@ -7,7 +7,7 @@ This repository contains the complete source for two separate apps for the Congr
 | VividVision communication board | [apps/vividvision](apps/vividvision) | https://raghavk612.github.io/VividVision-Ecosystem/vividvision/ |
 | VisionCare caregiver portal | [apps/visioncare](apps/visioncare) | https://raghavk612.github.io/VividVision-Ecosystem/visioncare/ |
 
-The `/VividVision-Ecosystem/` URL forwards to VividVision. GitHub Pages URLs using the previous repository name must be updated. The caregiver dashboard is at `visioncare/care.html`.
+The `/VividVision-Ecosystem/` URL forwards to VividVision. GitHub Pages URLs using the previous repository name must be updated. VisionCare opens directly to caregiver sign-in; existing `visioncare/care.html` links forward to that entry point.
 
 ## Local development
 
