@@ -226,13 +226,24 @@ loginForm.addEventListener('submit', async (event) => {
   }
 })
 
-document.querySelector('#sign-out').addEventListener('click', async () => {
-  cloudChannel?.unsubscribe()
-  await cloud.auth.signOut()
-  currentProfile = null
-  items = []
-  render()
-  showLogin()
+const signOutButton = document.querySelector('#sign-out')
+const signOutError = document.querySelector('#sign-out-error')
+signOutButton.addEventListener('click', async () => {
+  signOutButton.disabled = true
+  signOutButton.textContent = 'Signing out…'
+  signOutError.hidden = true
+  try {
+    const { error } = await cloud.auth.signOut()
+    if (error) throw error
+    // Reload after the stored session is removed to discard all patient data,
+    // subscriptions, and form values before returning to caregiver sign-in.
+    window.location.reload()
+  } catch (problem) {
+    signOutError.textContent = problem.message || 'Could not sign out. Please try again.'
+    signOutError.hidden = false
+    signOutButton.disabled = false
+    signOutButton.textContent = 'Sign out'
+  }
 })
 
 async function start() {
