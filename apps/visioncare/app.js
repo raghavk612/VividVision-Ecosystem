@@ -7,7 +7,10 @@ const cloudConfigured = Boolean(
   window.supabase,
 )
 const cloud = cloudConfigured
-  ? window.supabase.createClient(config.supabaseUrl, config.supabaseAnonKey)
+  ? window.supabase.createClient(config.supabaseUrl, config.supabaseAnonKey, {
+      // Keep caregiver login independent from the patient board on this origin.
+      auth: { storageKey: 'visioncare-caregiver-auth', persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
+    })
   : null
 const connection = document.querySelector('#connection')
 const latestCard = document.querySelector('#latest-card')

@@ -14,7 +14,8 @@ const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY?.trim()
 
 export const cloudConfigured = Boolean(url && anonKey && !url.includes('YOUR_'))
 export const supabase = cloudConfigured ? createClient(url, anonKey, {
-  auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
+  // Each app needs its own session on the shared GitHub Pages origin.
+  auth: { storageKey: 'vividvision-patient-auth', persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
 }) : null
 
 export function makeRoomCode() {

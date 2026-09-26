@@ -19,7 +19,7 @@ For VisionCare, run `python3 -m http.server 8080 --directory apps` and open `htt
 
 GitHub Pages allows one deployment per repository. The workflow `.github/workflows/pages.yml` tests, builds, and publishes both apps on every push to `main`. GitHub Pages uses **GitHub Actions** as its source. Run `npm run build` to generate the combined `dist/` locally. Only public web assets enter the Pages artifact. The `gh-pages` branch retains a snapshot from the initial combined deployment; Actions publishes directly from `main` going forward.
 
-Both apps retain their existing public Supabase configuration. Password-based sign-in continues to use that project. If configuring email confirmations, password resets, or OAuth, allow the new app URLs in Supabase Authentication redirect settings.
+Both apps retain their existing public Supabase configuration. Patient and caregiver logins use separate browser storage keys so both apps can stay signed in on the same browser. After the session-isolation update, sign in once in each app; old shared sessions are intentionally not imported because they may belong to the other role. Password-based sign-in continues to use that project. If configuring email confirmations, password resets, or OAuth, allow the new app URLs in Supabase Authentication redirect settings.
 
 Pages cannot host the optional Node API. The root `render.yaml` and `Dockerfile.api` continue to deploy that API from its new source directory. Set `VITE_API_BASE_URL` when building (or the matching repository variable when using Actions) to the existing API URL to enable hosted AI replies; otherwise VividVision uses local suggestions. Store server secrets only on the backend host.
 
