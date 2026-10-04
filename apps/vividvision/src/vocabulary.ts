@@ -61,11 +61,23 @@ export const BOARDS: Record<string, Board> = {
     title: 'I want',
     tiles: [
       { label: 'Water', speech: 'Can I have some water?' },
-      { label: 'Food', speech: 'I would like something to eat' },
+      { label: 'Food', goTo: 'food', accent: 'folder' },
       { label: 'Bathroom', speech: 'I need the bathroom' },
       { label: 'Blanket', speech: 'Can I have a blanket?' },
       { label: 'My phone', speech: 'Can I have my phone?' },
       { label: 'Back', goTo: 'home', accent: 'folder' },
+    ],
+  },
+  food: {
+    id: 'food',
+    title: 'Food',
+    tiles: [
+      { label: 'Soup', speech: 'I would like some soup' },
+      { label: 'Rice', speech: 'I would like some rice' },
+      { label: 'Sandwich', speech: 'I would like a sandwich' },
+      { label: 'Fruit', speech: 'I would like some fruit' },
+      { label: 'Pasta', speech: 'I would like some pasta' },
+      { label: 'Back', goTo: 'wants', accent: 'folder' },
     ],
   },
   feelings: {

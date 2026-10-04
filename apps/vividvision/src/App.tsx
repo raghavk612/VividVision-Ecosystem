@@ -1619,6 +1619,11 @@ function App({ onSignOut, signingOut = false, signOutError = '' }: { onSignOut?:
       // Head pointing is the point, but a tile that cannot also be pressed is a tile
       // nobody can help you with. A carer leaning over the bed, a visitor being shown how
       // this works, or anyone whose camera has just dropped out gets the same board.
+      onPointerEnter={(event) => {
+        if (tile.goTo === 'food' && event.pointerType === 'mouse') {
+          commitSelection(event.currentTarget)
+        }
+      }}
       onClick={(event) => commitSelection(event.currentTarget)}
     >
       {tile.label}
