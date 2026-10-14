@@ -12,7 +12,7 @@ rmSync('dist', { recursive: true, force: true })
 mkdirSync('dist', { recursive: true })
 cpSync('apps/vividvision/dist', 'dist/vividvision', { recursive: true })
 mkdirSync('dist/visioncare')
-for (const file of ['index.html', 'care.html', 'privacy.html', 'app.js', 'config.js', 'site.css', 'nav.css', 'auth.css', 'care.css', 'logo.jpg']) {
+for (const file of ['index.html', 'care.html', 'privacy.html', 'performance.html', 'performance.css', 'performance.js', 'app.js', 'config.js', 'site.css', 'nav.css', 'auth.css', 'care.css', 'logo.jpg']) {
   cpSync(`apps/visioncare/${file}`, `dist/visioncare/${file}`)
 }
 writeFileSync('dist/.nojekyll', '')
