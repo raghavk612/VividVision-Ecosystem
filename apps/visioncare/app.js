@@ -37,11 +37,30 @@ function timeLabel(value) {
 }
 
 function relativeTime(value) {
-  const seconds = Math.max(0, Math.round((Date.now() - new Date(value).getTime()) / 1000))
+  const timestamp = new Date(value).getTime()
+  if (!Number.isFinite(timestamp)) return 'Unknown time'
+  const seconds = Math.max(0, Math.floor((Date.now() - timestamp) / 1000))
   if (seconds < 5) return 'Just now'
-  if (seconds < 60) return `${seconds} seconds ago`
-  const minutes = Math.floor(seconds / 60)
-  return `${minutes} minute${minutes === 1 ? '' : 's'} ago`
+  const units = [
+    ['year', 365 * 24 * 60 * 60],
+    ['month', 30 * 24 * 60 * 60],
+    ['week', 7 * 24 * 60 * 60],
+    ['day', 24 * 60 * 60],
+    ['hour', 60 * 60],
+    ['minute', 60],
+    ['second', 1],
+  ]
+  const index = units.findIndex(([, size]) => seconds >= size)
+  const [name, size] = units[index]
+  const count = Math.floor(seconds / size)
+  const parts = [`${count} ${name}${count === 1 ? '' : 's'}`]
+  // Show the next smaller unit for hours and longer; keep minutes concise.
+  if (index < units.length - 2) {
+    const [nextName, nextSize] = units[index + 1]
+    const nextCount = Math.floor((seconds % size) / nextSize)
+    if (nextCount) parts.push(`${nextCount} ${nextName}${nextCount === 1 ? '' : 's'}`)
+  }
+  return `${parts.join(' ')} ago`
 }
 
 function render() {
