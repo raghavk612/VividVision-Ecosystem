@@ -25,13 +25,14 @@
       <p class="label">Privacy policy</p>
       <h1>Your communication belongs to you.</h1>
       <p>VividVision is designed to keep sensitive video and communication data on the device whenever possible.</p>
-      <small>Effective September 12, 2026</small>
+      <small>Updated October 13, 2026</small>
     </section>
 
     <div class="privacy-layout">
       <aside>
         <strong>On this page</strong>
         <a href="#summary">Plain-language summary</a>
+        <a href="#accounts">Accounts and caregiver pairing</a>
         <a href="#camera">Camera and microphone</a>
         <a href="#ai">Optional AI suggestions</a>
         <a href="#storage">Storage and sharing</a>
@@ -43,9 +44,16 @@
           <h2>Plain-language summary</h2>
           <div class="privacy-cards">
             <div><span class="privacy-icon">◉</span><strong>Camera stays local</strong><p>Video frames are processed in your browser and are not uploaded by VividVision.</p></div>
-            <div><span class="privacy-icon">◇</span><strong>No account required</strong><p>The prototype does not ask for your name, email address, or login.</p></div>
+            <div><span class="privacy-icon">◇</span><strong>Accounts connect care</strong><p>Patient and caregiver accounts use a name, email address, and password. An 8-character patient code links the caregiver to the patient’s messages.</p></div>
             <div><span class="privacy-icon">$̸</span><strong>Nothing is sold</strong><p>VividVision does not sell personal information or use it for advertising.</p></div>
           </div>
+        </section>
+
+        <section id="accounts">
+          <h2>Accounts and caregiver pairing</h2>
+          <p>Account creation asks for a name, email address, and password. Supabase Authentication handles email-and-password sign-in. The app stores a profile with an account identifier, display name, patient or caregiver role, and room code in Supabase.</p>
+          <p>VividVision generates an 8-character patient code that the caregiver enters when creating a VisionCare account. This code links the accounts for message sharing. Share it only with the intended caregiver.</p>
+          <p>An account is required to use VisionCare and to share VividVision messages with a caregiver. VividVision also offers a mode without caregiver sync; that mode does not send messages to VisionCare.</p>
         </section>
 
         <section id="camera">
@@ -63,7 +71,8 @@
 
         <section id="storage">
           <h2>Storage and sharing</h2>
-          <p>VividVision does not maintain a user database beyond account and paired-caregiver information. The current conversation remains private to its paired room. A preferred browser voice may be stored locally so it can be reused.</p>
+          <p>Supabase stores account profiles and messages sent through caregiver sync, including the patient account identifier, room code, message text, urgency level, and message timestamp. Caregiver acknowledgements include the acknowledging account identifier and acknowledgement time. VisionCare uses the linked room code to retrieve and display the patient’s messages.</p>
+          <p>Each app stores its sign-in session separately in the browser to keep you signed in. A preferred browser voice may also be stored locally. Signing out or clearing local site data does not delete account profiles or messages stored in Supabase.</p>
           <p>When connected, alert-level data may be sent over Bluetooth to the paired Particle Argon. The alert protocol communicates the alert type, not the sentence or camera data.</p>
         </section>
 
@@ -73,7 +82,8 @@
             <li>Deny or revoke camera and microphone permission in browser settings.</li>
             <li>Use the fixed word board without microphone listening.</li>
             <li>Stop the camera from the calibration panel.</li>
-            <li>Clear local site data through browser settings.</li>
+            <li>Sign out of your patient or caregiver account using the app’s Sign out button.</li>
+            <li>Clear local sign-in sessions and preferences through browser settings. This does not delete records stored in Supabase.</li>
             <li>Disconnect the Bluetooth beacon at any time.</li>
           </ul>
         </section>
